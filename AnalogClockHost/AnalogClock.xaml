@@ -20,7 +20,7 @@
                             <EllipseGeometry Center="30, 30" RadiusX="30" RadiusY="30" />
                         </Path.Data>
                     </Path>
-                    <TextBlock x:Name="AMPMDesignator" Text="午前" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
+                    <TextBlock x:Name="AMPMDesignator" Text="午前" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
                     <Path Stroke="Gray" StrokeThickness="1.5" Grid.RowSpan="2">
                         <Path.Data>
                             <GeometryGroup>
