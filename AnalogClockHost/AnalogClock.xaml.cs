@@ -41,6 +41,22 @@ namespace AnalogClockHost
             set { SetValue(TargetDateTimeProperty, value); }
         }
 
+        public static readonly DependencyProperty BaseDateTimeProperty = DependencyProperty.Register(
+          "BaseDateTime",
+          typeof(DateTime),
+          typeof(AnalogClock),
+          new FrameworkPropertyMetadata(DateTime.Now,
+              FrameworkPropertyMetadataOptions.AffectsRender,
+              new PropertyChangedCallback(OnBaseDateTimeChanged)
+          )
+        );
+
+        public DateTime BaseDateTime
+        {
+            get { return (DateTime)GetValue(BaseDateTimeProperty); }
+            set { SetValue(BaseDateTimeProperty, value); }
+        }
+
         private static void OnTargetDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue is DateTime newDateTime)
@@ -56,7 +72,49 @@ namespace AnalogClockHost
                     analogClock.LongHand.RenderTransform = new RotateTransform(longHandAngle);
                     analogClock.ShortHand.RenderTransform = new RotateTransform(shortHandAngle);
                     analogClock.AMPMText.Text = newDateTime.ToString("tt");
+
+                    ChangeDaysAfterText(d, analogClock.BaseDateTime);
                 }
+            }
+        }
+
+        private static void OnBaseDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue is DateTime newBaseDateTime)
+            {
+                ChangeDaysAfterText(d, newBaseDateTime);
+            }
+        }
+
+        private static void ChangeDaysAfterText(DependencyObject d, DateTime baseDateTime)
+        {
+            if (d is AnalogClock analogClock)
+            {
+                int daysAfter = (int)((analogClock.TargetDateTime.Date - baseDateTime.Date).TotalDays);
+
+                string daysAfterText = null;
+                if (daysAfter == 0)
+                {
+                    daysAfterText = "当日";
+                }
+                else if (daysAfter == 1)
+                {
+                    daysAfterText = "翌日";
+                }
+                else if (daysAfter == -1)
+                {
+                    daysAfterText = "前日";
+                }
+                else if (daysAfter > 1)
+                {
+                    daysAfterText = $"{ daysAfter }日後";
+                }
+                else
+                {
+                    daysAfterText = $"{ daysAfter * -1 }日前";
+                }
+
+                analogClock.DaysAfterText.Text = daysAfterText;
             }
         }
     }

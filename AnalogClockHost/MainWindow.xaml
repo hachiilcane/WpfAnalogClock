@@ -8,8 +8,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <TextBlock x:Name="TargetDateTimeText" />
-            <local:AnalogClock x:Name="AnalogClockView" />
+            <StackPanel>
+                <TextBlock x:Name="TargetDateTimeText" />
+                <DatePicker x:Name="BaseDatePicker" SelectedDate="2019/8/25" />
+            </StackPanel>
+            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding ElementName=BaseDatePicker, Path=SelectedDate}" />
         </StackPanel>
     </Grid>
 </Window>
