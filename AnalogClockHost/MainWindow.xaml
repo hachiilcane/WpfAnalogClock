@@ -12,7 +12,7 @@
                 <TextBlock x:Name="TargetDateTimeText" />
                 <DatePicker x:Name="BaseDatePicker" SelectedDate="2019/8/25" />
             </StackPanel>
-            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding ElementName=BaseDatePicker, Path=SelectedDate}" />
+            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding ElementName=BaseDatePicker, Path=SelectedDate}" AutoBaseDateTime="False"/>
         </StackPanel>
     </Grid>
 </Window>

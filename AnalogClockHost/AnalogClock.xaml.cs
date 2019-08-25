@@ -57,6 +57,22 @@ namespace AnalogClockHost
             set { SetValue(BaseDateTimeProperty, value); }
         }
 
+        public static readonly DependencyProperty AutoBaseDateTimeProperty = DependencyProperty.Register(
+          "AutoBaseDateTime",
+          typeof(bool),
+          typeof(AnalogClock),
+          new FrameworkPropertyMetadata(false,
+              FrameworkPropertyMetadataOptions.AffectsRender,
+              new PropertyChangedCallback(OnAutoBaseDateTimeChanged)
+          )
+        );
+
+        public bool AutoBaseDateTime
+        {
+            get { return (bool)GetValue(AutoBaseDateTimeProperty); }
+            set { SetValue(AutoBaseDateTimeProperty, value); }
+        }
+
         private static void OnTargetDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue is DateTime newDateTime)
@@ -73,6 +89,11 @@ namespace AnalogClockHost
                     analogClock.ShortHand.RenderTransform = new RotateTransform(shortHandAngle);
                     analogClock.AMPMText.Text = newDateTime.ToString("tt");
 
+                    if (analogClock.AutoBaseDateTime)
+                    {
+                        analogClock.BaseDateTime = DateTime.Today;
+                    }
+
                     ChangeDaysAfterText(d, analogClock.BaseDateTime);
                 }
             }
@@ -83,6 +104,22 @@ namespace AnalogClockHost
             if (e.NewValue is DateTime newBaseDateTime)
             {
                 ChangeDaysAfterText(d, newBaseDateTime);
+            }
+        }
+
+        private static void OnAutoBaseDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue is bool newAutoBaseDateTime)
+            {
+                if (d is AnalogClock analogClock)
+                {
+                    if (newAutoBaseDateTime)
+                    {
+                        analogClock.BaseDateTime = DateTime.Today;
+                    }
+
+                    ChangeDaysAfterText(d, analogClock.BaseDateTime);
+                }
             }
         }
 
