@@ -18,7 +18,7 @@
                         <EllipseGeometry Center="30, 30" RadiusX="30" RadiusY="30" />
                     </Path.Data>
                 </Path>
-                <TextBlock Text="AM" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
+                <TextBlock x:Name="AMPMText" Text="午前" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
                 <Path Stroke="Gray" StrokeThickness="1.5" Grid.RowSpan="2">
                     <Path.Data>
                         <GeometryGroup>
@@ -142,7 +142,7 @@
                     </Path.Data>
                 </Path>
             </Grid>
-            <TextBlock Text="当日" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
+            <TextBlock x:Name="DaysAfterText" Text="当日" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
         </StackPanel>
     </Grid>
 </UserControl>

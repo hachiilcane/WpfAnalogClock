@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <local:AnalogClock />
+            <TextBlock x:Name="TargetDateTimeText" />
+            <local:AnalogClock x:Name="AnalogClockView" />
         </StackPanel>
     </Grid>
 </Window>
