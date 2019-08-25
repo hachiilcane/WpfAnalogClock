@@ -87,7 +87,7 @@ namespace AnalogClockHost
                 {
                     analogClock.LongHand.RenderTransform = new RotateTransform(longHandAngle);
                     analogClock.ShortHand.RenderTransform = new RotateTransform(shortHandAngle);
-                    analogClock.AMPMText.Text = newDateTime.ToString("tt");
+                    analogClock.AMPMDesignator.Text = newDateTime.ToString("tt");
 
                     if (analogClock.AutoBaseDateTime)
                     {
@@ -127,31 +127,31 @@ namespace AnalogClockHost
         {
             if (d is AnalogClock analogClock)
             {
-                int daysAfter = (int)((analogClock.TargetDateTime.Date - baseDateTime.Date).TotalDays);
+                int daysLater = (int)((analogClock.TargetDateTime.Date - baseDateTime.Date).TotalDays);
 
-                string daysAfterText = null;
-                if (daysAfter == 0)
+                string daysLaterText;
+                if (daysLater == 0)
                 {
-                    daysAfterText = "当日";
+                    daysLaterText = "当日";
                 }
-                else if (daysAfter == 1)
+                else if (daysLater == 1)
                 {
-                    daysAfterText = "翌日";
+                    daysLaterText = "翌日";
                 }
-                else if (daysAfter == -1)
+                else if (daysLater == -1)
                 {
-                    daysAfterText = "前日";
+                    daysLaterText = "前日";
                 }
-                else if (daysAfter > 1)
+                else if (daysLater > 1)
                 {
-                    daysAfterText = $"{ daysAfter }日後";
+                    daysLaterText = $"{ daysLater }日後";
                 }
                 else
                 {
-                    daysAfterText = $"{ daysAfter * -1 }日前";
+                    daysLaterText = $"{ daysLater * -1 }日前";
                 }
 
-                analogClock.DaysAfterText.Text = daysAfterText;
+                analogClock.DaysLaterIndication.Text = daysLaterText;
             }
         }
     }
