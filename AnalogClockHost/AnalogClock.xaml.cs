@@ -73,6 +73,22 @@ namespace AnalogClockHost
             set { SetValue(AutoBaseDateTimeProperty, value); }
         }
 
+        public static readonly DependencyProperty DaysLaterIndicationVisibilityProperty = DependencyProperty.Register(
+          "DaysLaterIndicationVisibility",
+          typeof(Visibility),
+          typeof(AnalogClock),
+          new FrameworkPropertyMetadata(Visibility.Visible,
+              FrameworkPropertyMetadataOptions.AffectsRender,
+              new PropertyChangedCallback(OnDaysLaterIndicationVisibilityChanged)
+          )
+        );
+
+        public Visibility DaysLaterIndicationVisible
+        {
+            get { return (Visibility)GetValue(DaysLaterIndicationVisibilityProperty); }
+            set { SetValue(DaysLaterIndicationVisibilityProperty, value); }
+        }
+
         private static void OnTargetDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (e.NewValue is DateTime newDateTime)
@@ -152,6 +168,17 @@ namespace AnalogClockHost
                 }
 
                 analogClock.DaysLaterIndication.Text = daysLaterText;
+            }
+        }
+
+        private static void OnDaysLaterIndicationVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue is Visibility visibility)
+            {
+                if (d is AnalogClock analogClock)
+                {
+                    analogClock.DaysLaterIndication.Visibility = visibility;
+                }
             }
         }
     }

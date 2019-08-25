@@ -18,7 +18,7 @@
                     <DatePicker x:Name="BaseDatePicker" SelectedDate="2019/8/25" VerticalAlignment="Center" />
                 </StackPanel>
             </StackPanel>
-            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding SelectedDate, ElementName=BaseDatePicker}" AutoBaseDateTime="False" Width="60" VerticalAlignment="Center" />
+            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding SelectedDate, ElementName=BaseDatePicker}" AutoBaseDateTime="False" DaysLaterIndicationVisible="Visible" Width="60" VerticalAlignment="Center" />
         </StackPanel>
     </Grid>
 </Window>
