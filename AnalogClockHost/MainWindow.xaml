@@ -8,11 +8,17 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel Orientation="Horizontal">
-            <StackPanel>
-                <TextBlock x:Name="TargetDateTimeText" />
-                <DatePicker x:Name="BaseDatePicker" SelectedDate="2019/8/25" />
+            <StackPanel Margin="0 0 15 0" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="TargetDateTime:" VerticalAlignment="Center" />
+                    <TextBlock x:Name="TargetDateTimeText" VerticalAlignment="Center" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="BaseDateTime:" VerticalAlignment="Center" />
+                    <DatePicker x:Name="BaseDatePicker" SelectedDate="2019/8/25" VerticalAlignment="Center" />
+                </StackPanel>
             </StackPanel>
-            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding ElementName=BaseDatePicker, Path=SelectedDate}" AutoBaseDateTime="False"/>
+            <local:AnalogClock x:Name="AnalogClockView"  BaseDateTime="{Binding SelectedDate, ElementName=BaseDatePicker}" AutoBaseDateTime="False" Width="60" VerticalAlignment="Center" />
         </StackPanel>
     </Grid>
 </Window>
