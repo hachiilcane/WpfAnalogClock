@@ -9,7 +9,7 @@
     <Grid>
         <Viewbox>
             <StackPanel>
-                <TextBlock x:Name="DaysLaterIndication" Text="当日" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
+                <TextBlock x:Name="DaysLaterIndication" Text="当日" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
                 <Grid Width="60" Height="60">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -20,21 +20,19 @@
                             <EllipseGeometry Center="30, 30" RadiusX="30" RadiusY="30" />
                         </Path.Data>
                     </Path>
-                    <TextBlock x:Name="AMPMDesignator" Text="午前" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
                     <Path Stroke="Gray" StrokeThickness="1.5" Grid.RowSpan="2">
                         <Path.Data>
                             <GeometryGroup>
-                                <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
-                                <LineGeometry StartPoint="60, 30" EndPoint="55, 30"  />
-                                <LineGeometry StartPoint="30, 60" EndPoint="30, 55"  />
-                                <LineGeometry StartPoint="0, 30" EndPoint="5, 30"  />
-                                <LineGeometry StartPoint="0, 30" EndPoint="5, 30"  />
+                                <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
+                                <LineGeometry StartPoint="57, 30" EndPoint="52, 30"  />
+                                <LineGeometry StartPoint="30, 57" EndPoint="30, 52"  />
+                                <LineGeometry StartPoint="3, 30" EndPoint="8, 30"  />
                             </GeometryGroup>
                         </Path.Data>
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="30" />
@@ -42,7 +40,7 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="60" />
@@ -50,7 +48,7 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="120" />
@@ -58,7 +56,7 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="150" />
@@ -66,7 +64,7 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="210" />
@@ -74,7 +72,7 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="240" />
@@ -82,7 +80,7 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="300" />
@@ -90,13 +88,13 @@
                     </Path>
                     <Path Stroke="Gray" StrokeThickness="1.5" RenderTransformOrigin="0.5, 0.5" Grid.RowSpan="2">
                         <Path.Data>
-                            <LineGeometry StartPoint="30, 0" EndPoint="30, 5"  />
+                            <LineGeometry StartPoint="30, 3" EndPoint="30, 8"  />
                         </Path.Data>
                         <Path.RenderTransform>
                             <RotateTransform Angle="330" />
                         </Path.RenderTransform>
                     </Path>
-                    <Path x:Name="ShortHand" Stroke="Black" StrokeThickness="0.2" Fill="Black" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" >
+                    <Path x:Name="ShortHand" Stroke="Black" StrokeThickness="1" Fill="DimGray" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" >
                         <Path.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -108,16 +106,16 @@
                         <Path.Data>
                             <PathGeometry>
                                 <PathGeometry.Figures>
-                                    <PathFigure StartPoint="30, 11" IsClosed="True">
-                                        <LineSegment Point="32, 30" />
+                                    <PathFigure StartPoint="30, 12" IsClosed="True">
+                                        <LineSegment Point="33.5, 30" />
                                         <LineSegment Point="30, 35" />
-                                        <LineSegment Point="28, 30" />
+                                        <LineSegment Point="26.5, 30" />
                                     </PathFigure>
                                 </PathGeometry.Figures>
                             </PathGeometry>
                         </Path.Data>
                     </Path>
-                    <Path x:Name="LongHand" Stroke="Black" StrokeThickness="0.2" Fill="Black" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" >
+                    <Path x:Name="LongHand" Stroke="Black" StrokeThickness="1" Fill="DimGray" StrokeMiterLimit="2" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" >
                         <Path.RenderTransform>
                             <TransformGroup>
                                 <ScaleTransform/>
@@ -130,9 +128,9 @@
                             <PathGeometry>
                                 <PathGeometry.Figures>
                                     <PathFigure StartPoint="30, 1" IsClosed="True">
-                                        <LineSegment Point="31.5, 30" />
+                                        <LineSegment Point="33, 30" />
                                         <LineSegment Point="30, 35" />
-                                        <LineSegment Point="28.5, 30" />
+                                        <LineSegment Point="27, 30" />
                                     </PathFigure>
                                 </PathGeometry.Figures>
                             </PathGeometry>
@@ -144,6 +142,7 @@
                         </Path.Data>
                     </Path>
                 </Grid>
+                <TextBlock x:Name="AMPMDesignator" Text="午前" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray" />
             </StackPanel>
         </Viewbox>
     </Grid>
