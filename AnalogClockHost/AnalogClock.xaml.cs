@@ -83,10 +83,26 @@ namespace AnalogClockHost
           )
         );
 
-        public Visibility DaysLaterIndicationVisible
+        public Visibility DaysLaterIndicationVisibility
         {
             get { return (Visibility)GetValue(DaysLaterIndicationVisibilityProperty); }
             set { SetValue(DaysLaterIndicationVisibilityProperty, value); }
+        }
+
+        public static readonly DependencyProperty AMPMDesignatorVisibilityProperty = DependencyProperty.Register(
+          "AMPMDesignatorVisibility",
+          typeof(Visibility),
+          typeof(AnalogClock),
+          new FrameworkPropertyMetadata(Visibility.Visible,
+              FrameworkPropertyMetadataOptions.AffectsRender,
+              new PropertyChangedCallback(OnAMPMDesignatorVisibilityChanged)
+          )
+        );
+
+        public Visibility AMPMDesignatorVisibility
+        {
+            get { return (Visibility)GetValue(AMPMDesignatorVisibilityProperty); }
+            set { SetValue(AMPMDesignatorVisibilityProperty, value); }
         }
 
         private static void OnTargetDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -178,6 +194,17 @@ namespace AnalogClockHost
                 if (d is AnalogClock analogClock)
                 {
                     analogClock.DaysLaterIndication.Visibility = visibility;
+                }
+            }
+        }
+
+        private static void OnAMPMDesignatorVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.NewValue is Visibility visibility)
+            {
+                if (d is AnalogClock analogClock)
+                {
+                    analogClock.AMPMDesignator.Visibility = visibility;
                 }
             }
         }
